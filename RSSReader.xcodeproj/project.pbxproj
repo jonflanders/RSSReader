@@ -14,6 +14,14 @@
 		FCF5CAC01A2A84E20021049D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF5CABF1A2A84E20021049D /* Images.xcassets */; };
 		FCF5CAC31A2A84E20021049D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF5CAC11A2A84E20021049D /* LaunchScreen.xib */; };
 		FCF5CACF1A2A84E20021049D /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CACE1A2A84E20021049D /* RSSReaderTests.swift */; };
+		FCF5CADF1A2A8C700021049D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CADE1A2A8C700021049D /* Feed.swift */; };
+		FCF5CAE11A2A8EE50021049D /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE01A2A8EE50021049D /* FeedController.swift */; };
+		FCF5CAE41A2A91850021049D /* NSDataToFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE31A2A91850021049D /* NSDataToFeed.swift */; };
+		FCF5CAE61A2A9DFB0021049D /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE51A2A9DFB0021049D /* ServerConnection.swift */; };
+		FCF5CAE71A2AA3B10021049D /* NSDataToFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE31A2A91850021049D /* NSDataToFeed.swift */; };
+		FCF5CAE81A2AA3B10021049D /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE51A2A9DFB0021049D /* ServerConnection.swift */; };
+		FCF5CAE91A2AA3B10021049D /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE01A2A8EE50021049D /* FeedController.swift */; };
+		FCF5CAEA1A2AA3B10021049D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CADE1A2A8C700021049D /* Feed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +38,18 @@
 		FCF5CAB11A2A84E20021049D /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF5CAB51A2A84E20021049D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCF5CAB61A2A84E20021049D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCF5CAB81A2A84E20021049D /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		FCF5CABA1A2A84E20021049D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FCF5CAB81A2A84E20021049D /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = RSSReader/MasterViewController.swift; sourceTree = "<group>"; };
+		FCF5CABA1A2A84E20021049D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = RSSReader/DetailViewController.swift; sourceTree = "<group>"; };
 		FCF5CABD1A2A84E20021049D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FCF5CABF1A2A84E20021049D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FCF5CABF1A2A84E20021049D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RSSReader/Images.xcassets; sourceTree = "<group>"; };
 		FCF5CAC21A2A84E20021049D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FCF5CAC81A2A84E20021049D /* RSSReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF5CACD1A2A84E20021049D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCF5CACE1A2A84E20021049D /* RSSReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSReaderTests.swift; sourceTree = "<group>"; };
+		FCF5CADE1A2A8C700021049D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		FCF5CAE01A2A8EE50021049D /* FeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		FCF5CAE31A2A91850021049D /* NSDataToFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataToFeed.swift; sourceTree = "<group>"; };
+		FCF5CAE51A2A9DFB0021049D /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,13 @@
 		FCF5CAA81A2A84E20021049D = {
 			isa = PBXGroup;
 			children = (
+				FCF5CAE21A2A91600021049D /* Serialization */,
+				FCF5CADD1A2A85890021049D /* Networking */,
+				FCF5CADC1A2A85650021049D /* Storyboards */,
+				FCF5CADB1A2A85570021049D /* ViewControllers */,
+				FCF5CADA1A2A854D0021049D /* Resources */,
+				FCF5CAD91A2A85460021049D /* ModelControllers */,
+				FCF5CAD81A2A853F0021049D /* Models */,
 				FCF5CAB31A2A84E20021049D /* RSSReader */,
 				FCF5CACB1A2A84E20021049D /* RSSReaderTests */,
 				FCF5CAB21A2A84E20021049D /* Products */,
@@ -80,11 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				FCF5CAB61A2A84E20021049D /* AppDelegate.swift */,
-				FCF5CAB81A2A84E20021049D /* MasterViewController.swift */,
-				FCF5CABA1A2A84E20021049D /* DetailViewController.swift */,
-				FCF5CABC1A2A84E20021049D /* Main.storyboard */,
-				FCF5CABF1A2A84E20021049D /* Images.xcassets */,
-				FCF5CAC11A2A84E20021049D /* LaunchScreen.xib */,
 				FCF5CAB41A2A84E20021049D /* Supporting Files */,
 			);
 			path = RSSReader;
@@ -113,6 +127,64 @@
 				FCF5CACD1A2A84E20021049D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCF5CAD81A2A853F0021049D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCF5CADE1A2A8C700021049D /* Feed.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FCF5CAD91A2A85460021049D /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCF5CAE01A2A8EE50021049D /* FeedController.swift */,
+			);
+			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		FCF5CADA1A2A854D0021049D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCF5CAC11A2A84E20021049D /* LaunchScreen.xib */,
+				FCF5CABF1A2A84E20021049D /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FCF5CADB1A2A85570021049D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCF5CAB81A2A84E20021049D /* MasterViewController.swift */,
+				FCF5CABA1A2A84E20021049D /* DetailViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FCF5CADC1A2A85650021049D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FCF5CABC1A2A84E20021049D /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		FCF5CADD1A2A85890021049D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FCF5CAE51A2A9DFB0021049D /* ServerConnection.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		FCF5CAE21A2A91600021049D /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				FCF5CAE31A2A91850021049D /* NSDataToFeed.swift */,
+			);
+			name = Serialization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +288,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF5CABB1A2A84E20021049D /* DetailViewController.swift in Sources */,
+				FCF5CADF1A2A8C700021049D /* Feed.swift in Sources */,
+				FCF5CAE61A2A9DFB0021049D /* ServerConnection.swift in Sources */,
+				FCF5CAE11A2A8EE50021049D /* FeedController.swift in Sources */,
+				FCF5CAE41A2A91850021049D /* NSDataToFeed.swift in Sources */,
 				FCF5CAB91A2A84E20021049D /* MasterViewController.swift in Sources */,
 				FCF5CAB71A2A84E20021049D /* AppDelegate.swift in Sources */,
 			);
@@ -226,6 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF5CACF1A2A84E20021049D /* RSSReaderTests.swift in Sources */,
+				FCF5CAEA1A2AA3B10021049D /* Feed.swift in Sources */,
+				FCF5CAE81A2AA3B10021049D /* ServerConnection.swift in Sources */,
+				FCF5CAE71A2AA3B10021049D /* NSDataToFeed.swift in Sources */,
+				FCF5CAE91A2AA3B10021049D /* FeedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +326,7 @@
 				FCF5CABD1A2A84E20021049D /* Base */,
 			);
 			name = Main.storyboard;
+			path = RSSReader;
 			sourceTree = "<group>";
 		};
 		FCF5CAC11A2A84E20021049D /* LaunchScreen.xib */ = {
@@ -254,6 +335,7 @@
 				FCF5CAC21A2A84E20021049D /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = RSSReader;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

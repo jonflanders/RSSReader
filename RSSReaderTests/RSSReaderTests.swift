@@ -21,16 +21,29 @@ class RSSReaderTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testFeedController() {
+		let modelController = FeedController()
+		let expectation = self.expectationWithDescription("Test Feed Controller")
+		let url = "http://www.jonflanders.com/?feed=rss2"
+		modelController.fillFeed(url, callback: { model , e -> Void in
+			if let m = model{
+				
+			}else
+			{
+				XCTAssert(e != nil, "Error shouldn't be nil if feed is nil")
+				XCTAssert(model != nil, "Feed model is nil")
+				
+			}
+			expectation.fulfill()
+		})
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+      self.waitForExpectationsWithTimeout(10, handler: { (err) -> Void in
+		if let e = err{
+			XCTAssert(false, "Feed handler failed")
+		}
+	})
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
+	
     
 }

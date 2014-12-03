@@ -23,14 +23,14 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 	let descriptionElementName = "description"
 	let contentElementName = "content"
 	let guidElementName = "guid"
+	var tempString = ""
 	var feed:Feed?
 	var channel:Channel?
-	var temp:(String?,String?,String?,String?,NSDate)?
 	var feedURL:String?
 	var feedVersion:String?
 	var feedParser: NSXMLParser?
 	var callback:FeedCallback?
-	var channelTitle:String?
+	var curremItem:FeedItem?
 	func deserialize(data:NSData, callback:FeedCallback){
 		self.callback = callback
 		self.feedParser = NSXMLParser(data: data)
@@ -45,8 +45,22 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 				break
 			case channelElementName:
 				break
+			case titleElementName:
+				self.titleEnd()
 			default:
 				break
+		}
+	}
+	func titleEnd()
+	{
+		switch self.currentState{
+			case .RSSElementState:
+				break;
+			case .ChannelElementState:
+				self.channel!.channelTitle = self.tempString
+			case .ItemElementState:
+				self.curremItem!.feedItemTitle = self.tempString
+			
 		}
 	}
 	func parser(parser: NSXMLParser!, didEndMappingPrefix prefix: String!) {
@@ -59,17 +73,23 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 		
 	}
 	func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
+		self.tempString = ""
 		switch elementName{
-		case rssElementName:
-			self.currentState = NSDataToFeedState.RSSElementState
-		case channelElementName:
-			self.currentState = NSDataToFeedState.ChannelElementState
-		case itemElementName:
-			self.currentState = NSDataToFeedState.ItemElementState
-		case titleElementName:
-			setupTitleParse()
-		default:
-			break
+			case rssElementName:
+				self.currentState = NSDataToFeedState.RSSElementState
+				self.feed = Feed()
+			case channelElementName:
+				self.currentState = NSDataToFeedState.ChannelElementState
+				self.channel = Channel()
+				self.feed?.feedChannel = self.channel!
+			case itemElementName:
+				self.currentState = NSDataToFeedState.ItemElementState
+				self.curremItem = FeedItem()
+				self.channel!.channelItems.append(self.curremItem!)
+			case titleElementName:
+				setupTitleParse()
+			default:
+				break
 		}
 	}
 	func parser(parser: NSXMLParser!, didStartMappingPrefix prefix: String!, toURI namespaceURI: String!) {
@@ -82,7 +102,7 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 		
 	}
 	func parser(parser: NSXMLParser!, foundCharacters string: String!) {
-		println("state is \(self.currentState.rawValue) - found string = \(string)")
+		self.tempString += string
 	}
 	func parser(parser: NSXMLParser!, foundComment comment: String!) {
 		

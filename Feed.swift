@@ -8,27 +8,46 @@
 
 import Foundation
 
-
+let emptyString = ""
 struct Feed {
-	let feedURL:String
-	let feedVersion:String
-	let feedChannel:Channel
+	init(){
+		self.feedChannel = Channel()
+		self.feedURL = emptyString
+		self.feedVersion = emptyString
+	}
+	var feedURL:String
+	var feedVersion:String
+	var feedChannel:Channel
 }
 
 struct Channel {
-	let channelTitle:String
-	let channelDescription:String
-	let channelURL:String
-	let channelLastUpdated:NSDate
-	let channelItems:[FeedItem]
+	init(){
+		self.channelDescription = emptyString
+		self.channelTitle = emptyString
+		self.channelURL = emptyString
+		self.channelItems = [FeedItem]()
+		self.channelLastUpdated = NSDate()
+	}
+	var channelTitle:String
+	var channelDescription:String
+	var channelURL:String
+	var channelLastUpdated:NSDate
+	var channelItems:[FeedItem]
 	
 }
 
 struct FeedItem{
-	let feedItemTitle:String
-	let feedItemDescription:String
-	let feedItemURL:String
-	let feedItemContent:String
-	let feedItemLastUpdated:NSDate
+	init(){
+		self.feedItemContent = emptyString
+		self.feedItemDescription = emptyString
+		self.feedItemLastUpdated = NSDate()
+		self.feedItemTitle = emptyString
+		self.feedItemURL = emptyString
+	}
+	var feedItemTitle:String
+	var feedItemDescription:String
+	var feedItemURL:String
+	var feedItemContent:String
+	var feedItemLastUpdated:NSDate
 	
 }

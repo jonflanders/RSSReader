@@ -45,10 +45,59 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 				break
 			case channelElementName:
 				break
+			case itemElementName:
+				self.channel!.channelItems.append(self.curremItem!)
 			case titleElementName:
 				self.titleEnd()
+			case descriptionElementName:
+				self.descriptionEnd()
+			case itemPubDateName:
+				self.itemPubDateEnd()
 			default:
 				break
+		}
+	}
+	let dateFormatter = { (Void)->NSDateFormatter in
+		var ret = NSDateFormatter()
+		ret.dateFormat =  "EEE, dd LLL yyyy kk:mm:ss +SSSS"
+		return ret
+	}()
+	func dateFromString(string:String)->NSDate?{
+		return self.dateFormatter.dateFromString(string)
+	}
+	func itemPubDateEnd(){
+		switch self.currentState{
+			case .RSSElementState:
+				break
+			case .ChannelElementState:
+				break
+			case .ItemElementState:
+               if let item = curremItem {
+					if let d = self.dateFromString(self.tempString)
+					{
+						self.curremItem!.feedItemLastUpdated  = d
+					}
+				}
+		}
+	}
+	func contentEnd(){
+		switch self.currentState{
+			case .RSSElementState:
+				break
+			case .ChannelElementState:
+				break
+			case .ItemElementState:
+				self.curremItem!.feedItemContent = self.tempString
+		}
+	}
+	func descriptionEnd(){
+		switch self.currentState{
+			case .RSSElementState:
+				break
+			case .ChannelElementState:
+				self.channel!.channelDescription  = self.tempString
+			case .ItemElementState:
+				self.curremItem!.feedItemDescription = self.tempString
 		}
 	}
 	func titleEnd()
@@ -66,12 +115,7 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 	func parser(parser: NSXMLParser!, didEndMappingPrefix prefix: String!) {
 		
 	}
-	func parseRSSElement(attributes:[NSObject : AnyObject]!){
-		
-	}
-	func setupTitleParse(){
-		
-	}
+	
 	func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
 		self.tempString = ""
 		switch elementName{
@@ -81,13 +125,12 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 			case channelElementName:
 				self.currentState = NSDataToFeedState.ChannelElementState
 				self.channel = Channel()
-				self.feed?.feedChannel = self.channel!
+			
 			case itemElementName:
 				self.currentState = NSDataToFeedState.ItemElementState
 				self.curremItem = FeedItem()
-				self.channel!.channelItems.append(self.curremItem!)
-			case titleElementName:
-				setupTitleParse()
+			
+			
 			default:
 				break
 		}
@@ -138,17 +181,28 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 		
 	}
 	func parserDidEndDocument(parser: NSXMLParser!) {
-		
-	}
-	func parserDidStartDocument(parser: NSXMLParser!) {
 		if let cb = self.callback{
 			if let f = self.feed{
-				cb(f,nil)
+				if let c = self.channel{
+					self.feed!.feedChannel = c
+					cb(self.feed!,nil)
+				}
 			}else
 			{
 				cb(nil,NSError())
 			}
 		}
 	}
+	func parserDidStartDocument(parser: NSXMLParser!) {
+		
+	}
 	
 }
+
+
+
+
+
+
+
+

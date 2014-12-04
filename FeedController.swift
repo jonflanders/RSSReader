@@ -11,6 +11,7 @@ typealias FeedCallback  = (Feed?,NSError?)->Void
 
 
 struct FeedController{
+	
 	func fillFeed(url:String, callback:FeedCallback){
 		var connection = ServerConnectionManager()
 		connection.get(url, callback: { (d, e) -> Void in
@@ -19,10 +20,8 @@ struct FeedController{
 				serializer.deserialize(realData, callback: { (feed, error)-> Void in
 					callback(feed ,error)
 				})
-				
 			}
-			
 		})
-		
 	}
+	
 }

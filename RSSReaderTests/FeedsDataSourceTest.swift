@@ -20,6 +20,16 @@ class FeedsDataSourceTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+	func testDeleteFeed()
+	{
+		let expectation = self.expectationWithDescription("Test Adding new Feed")
+		let ds = FeedsDataSource()
+		let url = "http://www.jonflanders.com/?feed=rss2"
+		ds.removeAFeed(url)
+		self.waitForExpectationsWithTimeout(10, handler: { (e) -> Void in
+			
+		})
+	}
 	func testNewFeed(){
 		let expectation = self.expectationWithDescription("Test Adding new Feed")
 		let ds = FeedsDataSource()

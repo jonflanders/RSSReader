@@ -69,6 +69,25 @@ struct FeedsDataSource{
 	}
 	func removeAFeed(url:String){
 		self.ensureFileExists()
-		
+		let feedURL = self.getFeedPath()
+		let data = NSData(contentsOfURL: feedURL)
+		var json =  NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil) as JSONDictionary
+		if let dict = json {
+			var allFeeds = dict[feedsKey] as [Dictionary<String,AnyObject>]
+			var index = -1
+			for i in 0..<allFeeds.count{
+				var value = allFeeds[i]
+				let urlValue = value[urlKey] as String
+				if urlValue == url{
+					index = i
+				}
+			}
+			
+			if index > -1 {
+				allFeeds.removeAtIndex(index)
+				json![feedsKey] = allFeeds
+				self.saveFeedFile(json)
+			}
+		}
 	}
 }

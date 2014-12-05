@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias Feeds = [Feed]
+
 let emptyString = ""
 struct Feed {
 	init(){
@@ -19,7 +21,12 @@ struct Feed {
 	var feedVersion:String
 	var feedChannel:Channel
 }
-
+struct FeedImage {
+	init(){
+		self.url = emptyString
+	}
+	var url:String
+}
 struct Channel {
 	init(){
 		self.channelDescription = emptyString
@@ -27,12 +34,14 @@ struct Channel {
 		self.channelURL = emptyString
 		self.channelItems = [FeedItem]()
 		self.channelLastUpdated = NSDate()
+		self.channelImage = FeedImage()
 	}
 	var channelTitle:String
 	var channelDescription:String
 	var channelURL:String
 	var channelLastUpdated:NSDate
 	var channelItems:[FeedItem]
+	var channelImage:FeedImage
 	
 }
 

@@ -19,6 +19,8 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 	let channelElementName = "channel"
 	let titleElementName = "title"
 	let itemElementName = "item"
+	let imageElementName = "image"
+	let imageURLElementName = "url"
 	let itemPubDateName = "pubDate"
 	let descriptionElementName = "description"
 	let contentElementName = "content"
@@ -53,9 +55,16 @@ class NSDataToFeed : NSObject, NSXMLParserDelegate{
 				self.descriptionEnd()
 			case itemPubDateName:
 				self.itemPubDateEnd()
+		case imageURLElementName:
+			self.processImageURL();
 			default:
 				break
 		}
+	}
+	func processImageURL(){
+		var feedImage = FeedImage()
+		feedImage.url = self.tempString
+		self.channel!.channelImage = feedImage
 	}
 	let dateFormatter = { (Void)->NSDateFormatter in
 		var ret = NSDateFormatter()

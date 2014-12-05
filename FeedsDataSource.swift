@@ -44,12 +44,14 @@ struct FeedsDataSource{
 		}
 		callback(feeds)
 	}
+	
 	let extensionName = "json"
 	let fileName = "Feeds"
 	let feedsKey = "feeds"
 	let urlKey = "url"
 	let titleKey = "title"
-	func addAFeed(url:String){
+	
+	func addAFeed(url:String,title:String){
 		self.ensureFileExists()
 		let feedURL = self.getFeedPath()
 		let data = NSData(contentsOfURL: feedURL)
@@ -58,6 +60,7 @@ struct FeedsDataSource{
 			var allFeeds = dict[feedsKey] as [Dictionary<String,AnyObject>]
 			var newFeed = Dictionary<String,AnyObject>()
 			newFeed[urlKey] = url
+			newFeed[titleKey] = title
 			allFeeds.append(newFeed)
 			json![feedsKey] = allFeeds
 			self.saveFeedFile(json)

@@ -29,8 +29,8 @@ class FeedsDataSourceTest: XCTestCase {
 	}
 	func testNewFeed(){
 		let ds = FeedsDataSource()
-		let url = "http://www.jonflanders.com/?feed=rss2"
-		ds.addAFeed(url)
+		let url = "http://blog.pluralsight.com/feed"
+		ds.addAFeed(url,title: "Pluralsight")
 		XCTAssert(true, "Add Feed")
 	}
 	func testDataSourceSimple(){

@@ -39,7 +39,7 @@ class FeedsDataSourceTest: XCTestCase {
 		let ds = FeedsDataSource()
 		ds.getAllFeeds { (f) -> Void in
 			expectation.fulfill()
-			XCTAssertNotNil(f, "Feeds shouldn't be nil")
+			XCTAssertNotNil(f.count != 0, "Feeds shouldn't be nil")
 		}
 		self.waitForExpectationsWithTimeout(10, handler: { (e) -> Void in
 			

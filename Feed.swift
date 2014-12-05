@@ -16,10 +16,12 @@ struct Feed {
 		self.feedChannel = Channel()
 		self.feedURL = emptyString
 		self.feedVersion = emptyString
+		self.feedTitle = emptyString
 	}
 	var feedURL:String
 	var feedVersion:String
 	var feedChannel:Channel
+	var feedTitle:String
 }
 struct FeedImage {
 	init(){

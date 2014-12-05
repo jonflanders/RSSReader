@@ -19,6 +19,7 @@ struct FeedController{
 				var serializer = NSDataToFeed()
 				serializer.deserialize(realData, callback: { (feed, error)-> Void in
 					callback(feed ,error)
+				
 				})
 			}
 		})

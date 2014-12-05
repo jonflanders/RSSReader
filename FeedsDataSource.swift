@@ -28,9 +28,9 @@ struct FeedsDataSource{
 
 	}
 	//var dictionary:NSDictionary?
-	func getAllFeeds(callback:([String])->Void){
+	func getAllFeeds(callback:([(String,String)])->Void){
 		self.ensureFileExists()
-		var feeds = [String]()
+		var feeds = [(String,String)]()
 		let feedURL = self.getFeedPath()
 		let data = NSData(contentsOfURL: feedURL)
 		let json =  NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil) as JSONDictionary
@@ -38,7 +38,8 @@ struct FeedsDataSource{
 			let allFeeds = dict[feedsKey] as [Dictionary<String,AnyObject>]
 			for value in allFeeds{
 				let urlValue = value[urlKey] as String
-				feeds.append(urlValue)
+				let titleValue = value[titleKey] as String
+				feeds.append((urlValue,titleValue))
 			}
 		}
 		callback(feeds)
@@ -47,6 +48,7 @@ struct FeedsDataSource{
 	let fileName = "Feeds"
 	let feedsKey = "feeds"
 	let urlKey = "url"
+	let titleKey = "title"
 	func addAFeed(url:String){
 		self.ensureFileExists()
 		let feedURL = self.getFeedPath()

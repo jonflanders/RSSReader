@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Detail-->
+        <!--Channel View Controller-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="JEX-9P-axG" userLabel="Channel View Controller" customClass="DetailViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -31,18 +31,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3kT-oN-zQH">
-                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3kT-oN-zQH" userLabel="Channel Items">
+                                <rect key="frame" x="0.0" y="200" width="600" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JEX-9P-axG" id="UKp-Ls-jCp"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLg-mf-E9W" userLabel="Channel Image" customClass="ChannelImageView" customModule="RSSReader" customModuleProvider="target">
+                                <rect key="frame" x="250" y="77" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2O5-wu-WLk"/>
+                                    <constraint firstAttribute="height" constant="100" id="b1U-rU-mPp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3kT-oN-zQH" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" constant="64" id="0iY-fM-va1"/>
-                            <constraint firstAttribute="bottom" secondItem="3kT-oN-zQH" secondAttribute="bottom" constant="-64" id="8eE-3U-NuV"/>
+                            <constraint firstItem="3kT-oN-zQH" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" constant="200" id="0iY-fM-va1"/>
+                            <constraint firstAttribute="bottom" secondItem="3kT-oN-zQH" secondAttribute="bottom" id="8eE-3U-NuV"/>
+                            <constraint firstItem="tLg-mf-E9W" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" constant="77" id="BXD-9Z-ZIt"/>
+                            <constraint firstAttribute="centerX" secondItem="tLg-mf-E9W" secondAttribute="centerX" id="BnG-30-e7p"/>
                             <constraint firstItem="3kT-oN-zQH" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="Ugg-Jh-lPZ"/>
                             <constraint firstAttribute="trailing" secondItem="3kT-oN-zQH" secondAttribute="trailing" id="rb7-Di-Ltp"/>
                         </constraints>
@@ -50,6 +60,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="feedImage" destination="tLg-mf-E9W" id="QHF-mZ-pme"/>
                         <outlet property="tableView" destination="3kT-oN-zQH" id="hkg-ij-KLq"/>
                     </connections>
                 </viewController>
@@ -71,11 +82,11 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
-        <!--Master-->
+        <!--Feed List View Controller-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
+                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" userLabel="Feed List View Controller" customClass="MasterViewController" customModule="RSSReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0" userLabel="Feeds Table">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

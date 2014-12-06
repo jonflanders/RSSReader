@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController,UITableViewDataSource {
 
 	
+	@IBOutlet weak var feedImage: ChannelImageView!
 	//Mark -  UITableViewDataSource
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if let feed = self.detailItem{
@@ -41,6 +42,7 @@ class DetailViewController: UIViewController,UITableViewDataSource {
 			let modelController = ChannelController()
 			modelController.fillFeed(feed.feedURL, callback: { [unowned self] (newFeed, e) -> Void in
 				self.detailItem = newFeed
+				self.feedImage.imageURL = newFeed!.feedChannel.channelImage.url
 				dispatch_async(dispatch_get_main_queue(), { () -> Void in
 					if let tv = self.tableView{
 						tv.reloadData()

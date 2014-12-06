@@ -10,7 +10,7 @@ import Foundation
 typealias FeedCallback  = (Feed?,NSError?)->Void
 
 
-struct FeedController{
+struct ChannelController{
 	
 	func fillFeed(url:String, callback:FeedCallback){
 		var connection = ServerConnectionManager()

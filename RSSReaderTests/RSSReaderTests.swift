@@ -22,7 +22,7 @@ class RSSReaderTests: XCTestCase {
     }
     
     func testFeedController() {
-		let modelController = FeedController()
+		let modelController = ChannelController()
 		let expectation = self.expectationWithDescription("Test Feed Controller")
 		let url = "http://www.jonflanders.com/?feed=rss2"
 		modelController.fillFeed(url, callback: { model , e -> Void in

@@ -21,12 +21,12 @@
 		FCF5CAC31A2A84E20021049D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF5CAC11A2A84E20021049D /* LaunchScreen.xib */; };
 		FCF5CACF1A2A84E20021049D /* RSSReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CACE1A2A84E20021049D /* RSSReaderTests.swift */; };
 		FCF5CADF1A2A8C700021049D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CADE1A2A8C700021049D /* Feed.swift */; };
-		FCF5CAE11A2A8EE50021049D /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE01A2A8EE50021049D /* FeedController.swift */; };
+		FCF5CAE11A2A8EE50021049D /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE01A2A8EE50021049D /* ChannelController.swift */; };
 		FCF5CAE41A2A91850021049D /* NSDataToFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE31A2A91850021049D /* NSDataToFeed.swift */; };
 		FCF5CAE61A2A9DFB0021049D /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE51A2A9DFB0021049D /* ServerConnection.swift */; };
 		FCF5CAE71A2AA3B10021049D /* NSDataToFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE31A2A91850021049D /* NSDataToFeed.swift */; };
 		FCF5CAE81A2AA3B10021049D /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE51A2A9DFB0021049D /* ServerConnection.swift */; };
-		FCF5CAE91A2AA3B10021049D /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE01A2A8EE50021049D /* FeedController.swift */; };
+		FCF5CAE91A2AA3B10021049D /* ChannelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CAE01A2A8EE50021049D /* ChannelController.swift */; };
 		FCF5CAEA1A2AA3B10021049D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5CADE1A2A8C700021049D /* Feed.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 		FCF5CACD1A2A84E20021049D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCF5CACE1A2A84E20021049D /* RSSReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSReaderTests.swift; sourceTree = "<group>"; };
 		FCF5CADE1A2A8C700021049D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		FCF5CAE01A2A8EE50021049D /* FeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		FCF5CAE01A2A8EE50021049D /* ChannelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelController.swift; sourceTree = "<group>"; };
 		FCF5CAE31A2A91850021049D /* NSDataToFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataToFeed.swift; sourceTree = "<group>"; };
 		FCF5CAE51A2A9DFB0021049D /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,7 +151,7 @@
 		FCF5CAD91A2A85460021049D /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FCF5CAE01A2A8EE50021049D /* FeedController.swift */,
+				FCF5CAE01A2A8EE50021049D /* ChannelController.swift */,
 				FC6B96941A323F0A000FAD0C /* FeedsController.swift */,
 			);
 			name = ModelControllers;
@@ -307,7 +307,7 @@
 				FCF5CADF1A2A8C700021049D /* Feed.swift in Sources */,
 				FCF5CAE61A2A9DFB0021049D /* ServerConnection.swift in Sources */,
 				FC6B96951A323F0A000FAD0C /* FeedsController.swift in Sources */,
-				FCF5CAE11A2A8EE50021049D /* FeedController.swift in Sources */,
+				FCF5CAE11A2A8EE50021049D /* ChannelController.swift in Sources */,
 				FC6B96971A323FDC000FAD0C /* FeedsDataSource.swift in Sources */,
 				FCF5CAE41A2A91850021049D /* NSDataToFeed.swift in Sources */,
 				FCF5CAB91A2A84E20021049D /* MasterViewController.swift in Sources */,
@@ -325,7 +325,7 @@
 				FC28459F1A3245E300EBA34C /* FeedsDataSource.swift in Sources */,
 				FCF5CAE81A2AA3B10021049D /* ServerConnection.swift in Sources */,
 				FCF5CAE71A2AA3B10021049D /* NSDataToFeed.swift in Sources */,
-				FCF5CAE91A2AA3B10021049D /* FeedController.swift in Sources */,
+				FCF5CAE91A2AA3B10021049D /* ChannelController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

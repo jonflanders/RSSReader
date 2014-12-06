@@ -8,11 +8,26 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController,UITableViewDataSource {
 
-	@IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
+	
+	//Mark -  UITableViewDataSource
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if let feed = self.detailItem{
+			return feed.feedChannel.channelItems.count
+		}
+		return 0
+	}
+	
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+	{
+		 let cell =  UITableViewCell()
+		if let realFeed = self.detailItem{
+			let item = realFeed.feedChannel.channelItems[indexPath.row]
+			cell.textLabel!.text = item.feedItemTitle
+		}
+		return cell
+	}
 	var detailItem: Feed? {
 		didSet {
 		    // Update the view.
@@ -22,13 +37,20 @@ class DetailViewController: UIViewController {
 
 	func configureView() {
 		// Update the user interface for the detail item.
-		if let detail = self.detailItem {
-		    if let label = self.detailDescriptionLabel {
-		        label.text = detail.feedChannel.channelTitle
-		    }
+		if let feed = self.detailItem{
+			let modelController = ChannelController()
+			modelController.fillFeed(feed.feedURL, callback: { [unowned self] (newFeed, e) -> Void in
+				self.detailItem = newFeed
+				dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					if let tv = self.tableView{
+						tv.reloadData()
+					}
+				})
+			})
 		}
 	}
-
+	
+	@IBOutlet var tableView:UITableView?
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.

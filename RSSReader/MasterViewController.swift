@@ -51,7 +51,10 @@ class MasterViewController: UITableViewController {
 	}
 
 	func insertNewObject(sender: AnyObject) {
-		
+		let alert = UIAlertController(title: "New Feed", message: "Add a new feed url", preferredStyle: UIAlertControllerStyle.Alert)
+		self .presentViewController(alert, animated: false) { () -> Void in
+			
+		}
 //		objects.insertObject(NSDate(), atIndex: 0)
 //		let indexPath = NSIndexPath(forRow: 0, inSection: 0)
 //		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)

@@ -80,9 +80,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC2845A21A3295BB00EBA34C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		FCF5CAA81A2A84E20021049D = {
 			isa = PBXGroup;
 			children = (
+				FC2845A21A3295BB00EBA34C /* Views */,
 				FCF5CAE21A2A91600021049D /* Serialization */,
 				FCF5CADD1A2A85890021049D /* Networking */,
 				FCF5CADC1A2A85650021049D /* Storyboards */,

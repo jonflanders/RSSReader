@@ -8,12 +8,9 @@
 
 import UIKit
 
-@IBDesignable class ChannelImageView: UIView {
+class ChannelImageView: UIView {
 
-	override func prepareForInterfaceBuilder() {
-		self.image = UIImageView(image: UIImage(data: NSData(base64EncodedString: channelImageDesignImage, options:NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!))
-		self.loadImage()
-	}
+	
 	var imageURL:String?{
 		didSet{
 			self.image!.updateImage(self.imageURL!)

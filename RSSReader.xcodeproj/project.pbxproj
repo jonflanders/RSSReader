@@ -10,6 +10,7 @@
 		FC28459E1A3245DF00EBA34C /* Feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = FC6B96901A322462000FAD0C /* Feeds.json */; };
 		FC28459F1A3245E300EBA34C /* FeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B96961A323FDC000FAD0C /* FeedsDataSource.swift */; };
 		FC2845A11A3245FC00EBA34C /* FeedsDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2845A01A3245FC00EBA34C /* FeedsDataSourceTest.swift */; };
+		FC2845A41A329A0D00EBA34C /* ChannelImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2845A31A329A0D00EBA34C /* ChannelImageView.swift */; };
 		FC6B96911A322462000FAD0C /* Feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = FC6B96901A322462000FAD0C /* Feeds.json */; };
 		FC6B96951A323F0A000FAD0C /* FeedsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B96941A323F0A000FAD0C /* FeedsController.swift */; };
 		FC6B96971A323FDC000FAD0C /* FeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B96961A323FDC000FAD0C /* FeedsDataSource.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		FC2845A01A3245FC00EBA34C /* FeedsDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsDataSourceTest.swift; sourceTree = "<group>"; };
+		FC2845A31A329A0D00EBA34C /* ChannelImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelImageView.swift; sourceTree = "<group>"; };
 		FC6B96901A322462000FAD0C /* Feeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Feeds.json; sourceTree = "<group>"; };
 		FC6B96941A323F0A000FAD0C /* FeedsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsController.swift; sourceTree = "<group>"; };
 		FC6B96961A323FDC000FAD0C /* FeedsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsDataSource.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		FC2845A21A3295BB00EBA34C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FC2845A31A329A0D00EBA34C /* ChannelImageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			files = (
 				FCF5CABB1A2A84E20021049D /* DetailViewController.swift in Sources */,
 				FCF5CADF1A2A8C700021049D /* Feed.swift in Sources */,
+				FC2845A41A329A0D00EBA34C /* ChannelImageView.swift in Sources */,
 				FCF5CAE61A2A9DFB0021049D /* ServerConnection.swift in Sources */,
 				FC6B96951A323F0A000FAD0C /* FeedsController.swift in Sources */,
 				FCF5CAE11A2A8EE50021049D /* ChannelController.swift in Sources */,

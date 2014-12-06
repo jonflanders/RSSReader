@@ -25,10 +25,14 @@ struct FeedsController{
 			
 		}
 	}
-	func addFeed(url:String ,callback:(Feed)->Void){
-
+	func addFeed(url:String ,title:String, callback:(Bool)->Void){
+		let ds = FeedsDataSource()
+		ds.addAFeed(url, title: title)
+		callback(true)//TODO:
 	}
 	func removeFeed(url:String ,callback:(Bool)->Void){
-		
+		let ds = FeedsDataSource()
+		ds.removeAFeed(url)
+		callback(true)//TODO:
 	}
 }

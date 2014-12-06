@@ -52,12 +52,44 @@ class MasterViewController: UITableViewController {
 
 	func insertNewObject(sender: AnyObject) {
 		let alert = UIAlertController(title: "New Feed", message: "Add a new feed url", preferredStyle: UIAlertControllerStyle.Alert)
+		alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {[unowned self] (act) -> Void in
+			var newTitle:String?
+			var newURL:String?
+			if let fields = alert.textFields{
+				for f in fields as [UITextField]{
+					switch f.tag{
+					case 0:
+						newURL = f.text
+					case 1:
+						newTitle = f.text
+					default:
+						break;
+					}
+				}
+				
+			}
+			if let realTitle = newTitle{
+				if let realURL = newURL{
+					let feedsController = FeedsController()
+					feedsController.addFeed(realURL, title: realTitle, callback: { (f) -> Void in
+						self.refreshFeeds()
+					})
+				}
+			}
+			
+		}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+		alert.addTextFieldWithConfigurationHandler { (tf) -> Void in
+			tf.placeholder = "URL"
+			tf.tag = 0
+		}
+		alert.addTextFieldWithConfigurationHandler { (tf) -> Void in
+			tf.placeholder = "Name"
+			tf.tag = 1
+		}
 		self .presentViewController(alert, animated: false) { () -> Void in
 			
 		}
-//		objects.insertObject(NSDate(), atIndex: 0)
-//		let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-//		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
 	}
 
 	// MARK: - Segues
@@ -104,11 +136,15 @@ class MasterViewController: UITableViewController {
 
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 		if editingStyle == .Delete {
-		    //objects.removeObjectAtIndex(indexPath.row)
-		    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-		} else if editingStyle == .Insert {
-		    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-		}
+		   let feedsController = FeedsController()
+			if let realFeeds = self.feeds {
+				let object = realFeeds[indexPath.row]
+				feedsController.removeFeed(object.feedURL, callback: { [unowned self](deleted) -> Void in
+					self.refreshFeeds()
+				})
+			}
+			
+		} 
 	}
 
 
